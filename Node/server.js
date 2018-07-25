@@ -71,7 +71,7 @@ app.post("/auth", (req, res) => {
         if (result.email === data.email && result.password === data.password) {
           res.status(200).send({
             msg: "Authenticated",
-            page_code: "2",
+            page_code: "3",
             person_obj: result
           }); // authenticated
         } else res.status(500).send({ error: "Authentication error." });

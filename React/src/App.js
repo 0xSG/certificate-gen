@@ -10,27 +10,30 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: "1"
+      page_code: "1"
     };
 
     axios
-      .get("http://localhost:3007/getproducts")
+      .post("http://localhost:3007/auth", {
+        name: "sgk",
+        email: "susus@dfs.cd",
+        password: "sgk"
+      })
       .then(result => {
-        console.log(result.data);
+        console.log("363");
 
-        this.setState({ products: result.data });
+        this.setState(result);
       })
       .catch(err => {});
   }
 
   getView = () => {
-    console.log(this.state.page);
-    if (this.state.page == 3) {
-      return <Cert />;
-    } else if (this.state.page == 2) {
-      return <Home />;
+    if (this.state.page_code == 3) {
+      return <Cert />; //3
+    } else if (this.state.page_code == 2) {
+      return <Home />; //2
     } else {
-      return <Auth />;
+      return <Auth />; //1
     }
   };
 
