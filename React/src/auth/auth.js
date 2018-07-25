@@ -10,9 +10,7 @@ class Auth extends Component {
           Certificate Generation
         </div>
         <div className="form ">
-          <div className="text-center text-white">
-            <h1>Login</h1>
-          </div>
+          <div className="text-center text-white mh">Login</div>
           <input
             type="emal"
             name="email"
