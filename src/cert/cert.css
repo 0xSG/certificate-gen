@@ -99,7 +99,7 @@
 .t6 {
   position: absolute;
 
-  font-size: 1vw;
+  font-size: 2vw;
 
   bottom: 40px;
   left: 30px;
@@ -107,9 +107,9 @@
 .t7 {
   position: absolute;
 
-  font-size: 1vw;
+  font-size: 2vw;
 
-  bottom: 40px;
+  bottom: 30px;
   right: 30px;
 }
 

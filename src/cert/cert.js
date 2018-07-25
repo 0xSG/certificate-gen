@@ -31,7 +31,9 @@ class Cert extends Component {
           <div>Date:</div>
         </div>
         <div className="t7">
-          <div>Khushboo Murarka, Director Your Career Navigator Pvt Ltd</div>
+          <div>
+            Khushboo Murarka, Director <br /> Your Career Navigator Pvt Ltd
+          </div>
         </div>
       </div>
     );
