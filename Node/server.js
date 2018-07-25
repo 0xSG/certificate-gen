@@ -71,13 +71,20 @@ app.post("/auth", (req, res) => {
         if (result.email === data.email && result.password === data.password) {
           res.status(200).send({
             msg: "Authenticated",
-            page_code: "3",
+            pageCode: "2",
             person_obj: result
           }); // authenticated
-        } else res.status(500).send({ error: "Authentication error." });
+        } else
+          res
+            .status(200)
+            .send({ pageCode: "1", error: "Authentication error." });
       },
       function(errorObject) {
-        res.send("The read failed: " + errorObject.code);
+        res.send({ pageCode: "1" });
       }
     );
+});
+
+app.get("/auth", (req, res) => {
+  res.status(200).send({ pageCode: "2" });
 });
