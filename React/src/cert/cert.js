@@ -64,12 +64,3 @@ class Cert extends Component {
 }
 
 export default Cert;
-
-// <img src={"./Certif.png"} alt="Snow" className="m-0" />
-//         <div className="bottom-left">Bottom Left</div>
-//         <div className="top-left">Top Left</div>
-//         <div className="top-right">Top Right</div>
-//         <div className="bottom-right">Bottom Right</div>
-//         <div className="centered text-dark font-weight-bold ">
-//           <h1>Name of the person</h1>
-//         </div>

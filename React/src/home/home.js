@@ -19,9 +19,13 @@ class Home extends Component {
   }
 
   handleSubmit(event) {
-    //c1 p
-
     var usr = new user();
+    var date = new Date().getDate();
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+    usr.userData.udata.date = date + "-" + month + "-" + year;
+
+    //c1 p
 
     if (event.target.id == "lo") {
       this.props.onEvent({ pageCode: "1" });
@@ -30,22 +34,15 @@ class Home extends Component {
     }
     if (event.target.id == "c1p") {
       //alert("cp1");
-      var date = new Date().getDate();
-      var month = new Date().getMonth() + 1;
-      var year = new Date().getFullYear();
-
       usr.userData.udata.cname = "IMAGE PROCESSING AND MACHINE LEARNING";
       this.props.onEvent({ pageCode: "3" });
     }
-
     //c1 g
     else if (event.target.id == "c1g") {
       //alert("cg1");
-      var date = new Date().getDate();
-      var month = new Date().getMonth() + 1;
-      var year = new Date().getFullYear();
 
       usr.userData.udata.cname = "IMAGE PROCESSING AND MACHINE LEARNING";
+
       this.props.onEvent({ pageCode: "3" });
     }
 

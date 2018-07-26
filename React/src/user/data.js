@@ -3,8 +3,8 @@ class user {
   userData = {
     udata: {
       cname: " ",
-      date: "26-07-2018",
-      uno: "GERFFDSFDSGDasdklfj34a",
+      date: "",
+      uno: "SXFP-CHYK-ONI6-S89U",
       name: "SURYA GANGARAJ K"
     },
     pageCode: "1"
