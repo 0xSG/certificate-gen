@@ -109,7 +109,7 @@ class Home extends Component {
             <button
               onClick={this.handleSubmit}
               id={"lo"}
-              className=" btn-primary rounded"
+              className=" btn-warning rounded"
             >
               <span class="glyphicon glyphicon-log-out" /> Log out
             </button>
@@ -120,26 +120,13 @@ class Home extends Component {
                 <h1>John Doe</h1>
                 <p className=" titl">IMAGE PROCESSING AND MACHINE LEARNING</p>
 
-                <div className=" row">
-                  <div className=" col-6">
-                    <button
-                      onClick={this.handleSubmit}
-                      id={"c1p"}
-                      className=" btn-primary rounded"
-                    >
-                      Print
-                    </button>
-                  </div>
-                  <div className=" col-6">
-                    <button
-                      onClick={this.handleSubmit}
-                      id={"c1g"}
-                      className=" btn-success rounded"
-                    >
-                      Generate
-                    </button>
-                  </div>
-                </div>
+                <button
+                  onClick={this.handleSubmit}
+                  id={"c1p"}
+                  className=" btn-warning rounded"
+                >
+                  Print
+                </button>
               </div>
             </div>
 
@@ -148,26 +135,13 @@ class Home extends Component {
                 <h1>John Doe</h1>
                 <p className="home titl">FULL STACK WEB DEVELOPMENT</p>
 
-                <div className="home row">
-                  <div className="home col-6">
-                    <button
-                      onClick={this.handleSubmit}
-                      id={"c2p"}
-                      className="home btn-primary rounded"
-                    >
-                      Print
-                    </button>
-                  </div>
-                  <div className="home col-6">
-                    <button
-                      onClick={this.handleSubmit}
-                      id={"c2g"}
-                      className="home btn-success rounded"
-                    >
-                      Generate
-                    </button>
-                  </div>
-                </div>
+                <button
+                  onClick={this.handleSubmit}
+                  id={"c2p"}
+                  className="home btn-warning rounded"
+                >
+                  Print
+                </button>
               </div>
             </div>
           </div>

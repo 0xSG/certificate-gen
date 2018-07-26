@@ -40,6 +40,7 @@ button {
   text-align: center;
   cursor: pointer;
   width: 100%;
+  border-radius: 50px;
   font-size: 18px;
 }
 

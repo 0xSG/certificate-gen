@@ -12,8 +12,16 @@ class Cert extends Component {
     this.state = {};
     usr = new user();
     console.log(usr);
+    this.myFunction = this.myFunction.bind(this);
   }
 
+  myFunction() {
+    window.print();
+  }
+
+  componentWillMount() {
+    window.setTimeout(this.myFunction, 1000);
+  }
   render() {
     return (
       <div className="card text-dark m-4 ">
