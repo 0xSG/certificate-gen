@@ -130,8 +130,6 @@ class Home extends Component {
                 </button>
               </div>
             </div>
-            <br />
-            <br />
             <div className="home  ">
               <div className="home card shadow-lg">
                 <h1>John Doe</h1>

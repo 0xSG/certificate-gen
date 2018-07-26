@@ -76,7 +76,7 @@ class Auth extends Component {
             placeholder="Password"
             className="inp"
           />
-          <div className="status-txt" value={this.state.status} />
+          {/* <div className="status-txt" value={this.state.status} /> */}
           <input
             type="submit"
             onClick={this.handleSubmit}
