@@ -6,7 +6,7 @@ import user from "../user/data";
 const axios = require("axios");
 var usr;
 class Auth extends Component {
-  state = {};
+  state = { info: " " };
 
   constructor(props) {
     super(props);
@@ -30,7 +30,7 @@ class Auth extends Component {
     //Check the password and user name
     //if true get the data
     //send the data to event
-    alert(usr.userData.password + ":" + usr.userData.email);
+
     axios
       .post("http://localhost:3008/auth", {
         email: usr.userData.email,
@@ -39,8 +39,13 @@ class Auth extends Component {
       .then(result => {
         this.props.onEvent(result.data);
         this.setState({ products: result.data });
+        console.log(result);
+        if (result.data.pageCode == "2") alert("login successful");
+        else alert("incorrect email or password");
       })
-      .catch(err => {});
+      .catch(err => {
+        alert("incorrect email or password");
+      });
   }
 
   render() {
@@ -68,6 +73,7 @@ class Auth extends Component {
             placeholder="Password"
             className="inp"
           />
+
           <input
             type="submit"
             onClick={this.handleSubmit}
