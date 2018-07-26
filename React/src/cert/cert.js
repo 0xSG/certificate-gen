@@ -32,13 +32,13 @@ class Cert extends Component {
           </div>
         </div>
         <div className="t2">
-          <div className="d">{new user().udata.cname}</div>
+          <div className="d">{new user().userData.udata.cname}</div>
         </div>
         <div className="t3">
           <div className="d">THIS IS TO CERTIFY THAT</div>
         </div>
         <div className="t4 ">
-          <div>{new user().udata.name}</div>
+          <div>{new user().userData.udata.name}</div>
         </div>
         <div className="t5">
           <div className="d">
@@ -48,9 +48,9 @@ class Cert extends Component {
         </div>
         <div className="t6">
           <div>
-            Date:{new user().udata.date}
+            Date:{new user().userData.udata.date}
             <br />
-            {new user().udata.uno}
+            {new user().userData.udata.uno}
           </div>
         </div>
         <div className="t7">

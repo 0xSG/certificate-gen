@@ -34,12 +34,7 @@ class Home extends Component {
       var month = new Date().getMonth() + 1;
       var year = new Date().getFullYear();
 
-      usr.udata = {
-        cname: "IMAGE PROCESSING AND MACHINE LEARNING",
-        date: date + "-" + month + "-" + year,
-        uno: "D33J-H872-3545-71A1",
-        name: "SURYA GANGARAJ K"
-      };
+      usr.userData.udata.cname = "IMAGE PROCESSING AND MACHINE LEARNING";
       this.props.onEvent({ pageCode: "3" });
     }
 
@@ -50,12 +45,7 @@ class Home extends Component {
       var month = new Date().getMonth() + 1;
       var year = new Date().getFullYear();
 
-      usr.udata = {
-        cname: "IMAGE PROCESSING AND MACHINE LEARNING",
-        date: date + "-" + month + "-" + year,
-        uno: "D33J-H872-3545-71A1",
-        name: "SURYA GANGARAJ K"
-      };
+      usr.userData.udata.cname = "IMAGE PROCESSING AND MACHINE LEARNING";
       this.props.onEvent({ pageCode: "3" });
     }
 
@@ -66,12 +56,7 @@ class Home extends Component {
       var month = new Date().getMonth() + 1;
       var year = new Date().getFullYear();
 
-      usr.udata = {
-        cname: "FULL STACK WEB DEVELOPMENT",
-        date: date + "-" + month + "-" + year,
-        uno: "D33J-H872-3545-71A1",
-        name: "SURYA GANGARAJ K"
-      };
+      usr.userData.udata.cname = "FULL STACK WEB DEVELOPMENT";
       this.props.onEvent({ pageCode: "3" });
     }
 
@@ -82,12 +67,7 @@ class Home extends Component {
       var month = new Date().getMonth() + 1;
       var year = new Date().getFullYear();
 
-      usr.udata = {
-        cname: "FULL STACK WEB DEVELOPMENT",
-        date: date + "-" + month + "-" + year,
-        uno: "D33J-H872-3545-71A1",
-        name: "SURYA GANGARAJ K"
-      };
+      usr.userData.udata.cname = "FULL STACK WEB DEVELOPMENT";
       this.props.onEvent({ pageCode: "3" });
     }
   }
@@ -106,7 +86,7 @@ class Home extends Component {
               alt="John"
               className=" myimg"
             />
-            <p className=" titl">{new user().name}</p>
+            <p className=" titl">{new user().userData.udata.name}</p>
             <button
               onClick={this.handleSubmit}
               id={"lo"}
@@ -118,7 +98,6 @@ class Home extends Component {
           <div className="  col-6">
             <div className="  ">
               <div className=" card shadow-lg">
-                <h1>John Doe</h1>
                 <p className=" titl">IMAGE PROCESSING AND MACHINE LEARNING</p>
 
                 <button
@@ -130,15 +109,14 @@ class Home extends Component {
                 </button>
               </div>
             </div>
-            <div className="home  ">
-              <div className="home card shadow-lg">
-                <h1>John Doe</h1>
-                <p className="home titl">FULL STACK WEB DEVELOPMENT</p>
+            <div className="  ">
+              <div className=" card shadow-lg">
+                <p className=" titl">FULL STACK WEB DEVELOPMENT</p>
 
                 <button
                   onClick={this.handleSubmit}
                   id={"c2p"}
-                  className="home btn-warning "
+                  className=" btn-warning "
                 >
                   Print
                 </button>
