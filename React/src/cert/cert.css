@@ -53,9 +53,10 @@
   font-size: 3.5vw;
   margin-top: 55%;
   margin-bottom: 45%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  align-self: center;
 
   width: auto;
 }

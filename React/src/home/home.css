@@ -11,10 +11,18 @@
   font-family: arial;
 }
 .home .header {
-  border-radius: 50px;
-  height: 10%;
-  margin: 10px;
-  font-size: 2vw;
+  top: 0%;
+  left: 0px;
+  right: 0px;
+  font-size: 3vw;
+  margin-left: 0%;
+  margin-right: 0%;
+  width: auto;
+  background: rgba(0, 0, 0, 0.767);
+  border: none;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 5px;
 }
 
 .home .titl {

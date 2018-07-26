@@ -7,7 +7,7 @@ class user {
       uno: "GERFFDSFDSGDasdklfj34a",
       name: "SURYA GANGARAJ K"
     },
-    pageCode: "1"
+    pageCode: "2"
   };
   constructor() {
     if (!instance) {

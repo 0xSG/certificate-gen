@@ -40,8 +40,7 @@ class Auth extends Component {
         this.props.onEvent(result.data);
         this.setState({ products: result.data });
         console.log(result);
-        if (result.data.pageCode == "2") alert("login successful");
-        else alert("incorrect email or password");
+        if (result.data.pageCode != "2") alert("incorrect email or password");
       })
       .catch(err => {
         alert("incorrect email or password");

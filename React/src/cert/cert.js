@@ -9,6 +9,7 @@ class Cert extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {};
     usr = new user();
     console.log(usr);
   }
@@ -38,7 +39,11 @@ class Cert extends Component {
           </div>
         </div>
         <div className="t6">
-          <div>Date:{new user().udata.name}</div>
+          <div>
+            Date:{new user().udata.date}
+            <br />
+            {new user().udata.uno}
+          </div>
         </div>
         <div className="t7">
           <div>
