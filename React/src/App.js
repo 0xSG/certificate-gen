@@ -12,7 +12,9 @@ class App extends Component {
     nu = new user();
 
     super(props);
-    this.state = {};
+    this.state = {
+      udata: new user().userData.udata
+    };
     this.onEventHander = this.onEventHander.bind(this);
   }
   onEventHander(event) {
@@ -23,7 +25,7 @@ class App extends Component {
   getView = () => {
     //alert(nu.userData.pageCode);
     if (nu.userData.pageCode == "3") {
-      return <Cert onEvent={this.onEventHander} />; //3
+      return <Cert onEvent={this.onEventHander} udata={this.setState.udata} />; //3
     } else if (nu.userData.pageCode == "2") {
       return <Home onEvent={this.onEventHander} />; //2
     } else {
