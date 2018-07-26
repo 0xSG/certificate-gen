@@ -1,0 +1,64 @@
+.home .myimg {
+  width: 100%;
+  margin: 5px;
+}
+.home .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0home 0.2);
+  max-width: 300px;
+  margin: auto;
+  border-radius: 10px;
+  text-align: center;
+  font-family: arial;
+}
+.home .header {
+  border-radius: 50px;
+  height: 10%;
+  margin: 10px;
+  font-size: 2vw;
+}
+
+.home .titl {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover,
+a:hover {
+  opacity: 0home 0.7;
+}
+
+.home .col-6 .row .card {
+  height: auto;
+  width: 100%;
+  margin: 10px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.home .col-6 .row .card btnp {
+}
+.home .col-6 .row .card btng {
+}
+.home .col-6 .row .card .title {
+  background: none;
+}
