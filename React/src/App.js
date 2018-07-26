@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   getView = () => {
-    alert(nu.userData.pageCode);
+    //alert(nu.userData.pageCode);
     if (nu.userData.pageCode == "3") {
       return <Cert onEvent={this.onEventHander} />; //3
     } else if (nu.userData.pageCode == "2") {

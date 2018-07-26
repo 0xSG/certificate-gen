@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./auth.css";
-import { resolve } from "url";
-import { rejects } from "assert";
+
 import user from "../user/data";
+
 const axios = require("axios");
 var usr;
 class Auth extends Component {
@@ -27,13 +27,20 @@ class Auth extends Component {
   }
 
   handleSubmit(event) {
-    var u = new user();
-    // //alert(u.userData.email + ":" + u.userData.password);
-    // u.userData.pageCode = 2;
-
-    this.props.onEvent({ pageCode: 2 });
-
-    event.preventDefault();
+    //Check the password and user name
+    //if true get the data
+    //send the data to event
+    axios
+      .post("http://localhost:3008/auth", {
+        name: "sgk",
+        email: "sgk@sgk.com",
+        password: "sgk@sgk.com"
+      })
+      .then(result => {
+        this.props.onEvent(result.data);
+        this.setState({ products: result.data });
+      })
+      .catch(err => {});
   }
 
   render() {
@@ -74,3 +81,10 @@ class Auth extends Component {
 }
 
 export default Auth;
+
+/*
+  if the user email and password is correct then the person obj is send to the app. with pageCode:2
+
+  TODO
+  have to include data base api
+*/

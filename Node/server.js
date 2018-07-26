@@ -14,31 +14,55 @@ var config = {
 };
 firebase.initializeApp(config);
 
-app.listen(3007, () => {
+app.all("/*", function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "POST, GET");
+  next();
+});
+
+app.listen(3008, () => {
   console.log("its running..");
+});
+
+app.post("/auth", (req, res) => {
+  var body = req.body;
+  console.log("auth");
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(body.email, body.password)
+    .then(data => {
+      res.status(200).send({ pageCode: "2" });
+    })
+    .catch(err => {
+      res.status(200).send({ pageCode: "1" });
+    });
 });
 
 var db = firebase.database();
 
-db.ref("users/").set({
-  name: "sgk",
-  uid: "dasfasd",
-  cour: [
-    {
-      coid: "dfsf",
-      cname: "full stack",
-      c_date:
-        "Date :" +
-        new Date().getDate() +
-        ":" +
-        new Date().getMonth() +
-        ":" +
-        new Date().getFullYear()
-    }
-  ],
-  email: "susus@dfs.cd",
-  password: "sgk"
-});
+// db.ref("users/").set({
+//   name: "sgk",
+//   uid: "dasfasd",
+//   cour: [
+//     {
+//       coid: "dfsf",
+//       cname: "full stack",
+//       c_date:
+//         "Date :" +
+//         new Date().getDate() +
+//         ":" +
+//         new Date().getMonth() +
+//         ":" +
+//         new Date().getFullYear()
+//     }
+//   ],
+//   email: "susus@dfs.cd",
+//   password: "sgk"
+// });
 
 app.get("/cert/:id", (req, res) => {
   // for gettings certificate
@@ -57,33 +81,33 @@ app.get("/cert/:id", (req, res) => {
   res.status(200).send("id: " + id);
 });
 
-app.post("/auth", (req, res) => {
-  var data = req.body;
-  if (Object.keys(data).length == 0) {
-    res
-      .status(500)
-      .send({ error: "internal error occured. please try again." });
-  } else
-    db.ref("users/").on(
-      "value",
-      function(snapshot) {
-        var result = snapshot.val();
-        if (result.email === data.email && result.password === data.password) {
-          res.status(200).send({
-            msg: "Authenticated",
-            pageCode: "2",
-            person_obj: result
-          }); // authenticated
-        } else
-          res
-            .status(200)
-            .send({ pageCode: "1", error: "Authentication error." });
-      },
-      function(errorObject) {
-        res.send({ pageCode: "1" });
-      }
-    );
-});
+// app.post("/auth", (req, res) => {
+//   var data = req.body;
+//   if (Object.keys(data).length == 0) {
+//     res
+//       .status(500)
+//       .send({ error: "internal error occured. please try again." });
+//   } else
+//     db.ref("users/").on(
+//       "value",
+//       function(snapshot) {
+//         var result = snapshot.val();
+//         if (result.email === data.email && result.password === data.password) {
+//           res.status(200).send({
+//             msg: "Authenticated",
+//             pageCode: "2",
+//             person_obj: result
+//           }); // authenticated
+//         } else
+//           res
+//             .status(200)
+//             .send({ pageCode: "1", error: "Authentication error." });
+//       },
+//       function(errorObject) {
+//         res.send({ pageCode: "1" });
+//       }
+//     );
+// });
 
 app.get("/auth", (req, res) => {
   res.status(200).send({ pageCode: "2" });
