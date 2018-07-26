@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./auth.css";
+import { AsyncStorage } from "AsyncStorage";
 
 import user from "../user/data";
 
@@ -10,7 +11,7 @@ class Auth extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { status: " " };
 
     usr = new user();
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -40,9 +41,12 @@ class Auth extends Component {
         this.props.onEvent(result.data);
         this.setState({ products: result.data });
         console.log(result);
+
+        AsyncStorage.setItem("pageCode", "2");
         if (result.data.pageCode != "2") alert("incorrect email or password");
       })
       .catch(err => {
+        AsyncStorage.setItem("pageCode", "1");
         alert("incorrect email or password");
       });
   }
@@ -72,7 +76,7 @@ class Auth extends Component {
             placeholder="Password"
             className="inp"
           />
-
+          <div className="status-txt" value={this.state.status} />
           <input
             type="submit"
             onClick={this.handleSubmit}

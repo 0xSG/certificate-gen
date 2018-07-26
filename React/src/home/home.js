@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { AsyncStorage } from "AsyncStorage";
 import "./home.css";
 import user from "../user/data";
 
@@ -26,6 +26,7 @@ class Home extends Component {
     if (event.target.id == "lo") {
       this.props.onEvent({ pageCode: "1" });
       this.forceUpdate();
+      AsyncStorage.setItem("pageCode", "1");
     }
     if (event.target.id == "c1p") {
       //alert("cp1");

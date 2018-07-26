@@ -56,3 +56,13 @@
 .mh {
   font-size: 4vw;
 }
+
+.status-txt {
+  width: 90%;
+  margin: 5%;
+
+  border: none;
+  color: beige;
+  text-align: center;
+  border-radius: 10px;
+}
