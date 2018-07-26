@@ -99,8 +99,8 @@ class Home extends Component {
           <div>Certificate Generation Home</div>
         </div>
 
-        <div className=" container row">
-          <div className=" card col-6 shadow-lg">
+        <div className=" container  row">
+          <div className="  card col-6 shadow-lg">
             <img
               src={"https://picsum.photos/200/300/?random"}
               alt="John"
@@ -110,13 +110,13 @@ class Home extends Component {
             <button
               onClick={this.handleSubmit}
               id={"lo"}
-              className=" btn-warning rounded"
+              className=" btn-warning "
             >
               <span class="glyphicon glyphicon-log-out" /> Log out
             </button>
           </div>
           <div className="  col-6">
-            <div className="  row">
+            <div className="  ">
               <div className=" card shadow-lg">
                 <h1>John Doe</h1>
                 <p className=" titl">IMAGE PROCESSING AND MACHINE LEARNING</p>
@@ -124,14 +124,15 @@ class Home extends Component {
                 <button
                   onClick={this.handleSubmit}
                   id={"c1p"}
-                  className=" btn-warning rounded"
+                  className=" btn-warning "
                 >
                   Print
                 </button>
               </div>
             </div>
-
-            <div className="home  row">
+            <br />
+            <br />
+            <div className="home  ">
               <div className="home card shadow-lg">
                 <h1>John Doe</h1>
                 <p className="home titl">FULL STACK WEB DEVELOPMENT</p>
@@ -139,7 +140,7 @@ class Home extends Component {
                 <button
                   onClick={this.handleSubmit}
                   id={"c2p"}
-                  className="home btn-warning rounded"
+                  className="home btn-warning "
                 >
                   Print
                 </button>

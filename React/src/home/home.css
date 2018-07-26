@@ -1,14 +1,19 @@
 .home .myimg {
-  width: 100%;
+  width: auto;
+  height: auto;
   margin: 5px;
+  border-radius: 30px;
 }
+
 .home .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0home 0.2);
   max-width: 300px;
   margin: auto;
-  border-radius: 10px;
+  border: none;
+  border-radius: 30px;
   text-align: center;
   font-family: arial;
+  padding: 5px;
 }
 .home .header {
   top: 0%;
@@ -40,7 +45,7 @@ button {
   text-align: center;
   cursor: pointer;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 30px;
   font-size: 18px;
 }
 
@@ -70,4 +75,7 @@ a:hover {
 }
 .home .col-6 .row .card .title {
   background: none;
+}
+.col-6 .card {
+  margin: 30px;
 }

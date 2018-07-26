@@ -6,7 +6,6 @@ import Cert from "./cert/cert";
 import user from "./user/data";
 import { AsyncStorage } from "AsyncStorage";
 
-const axios = require("axios");
 var nu;
 class App extends Component {
   constructor(props) {
@@ -25,14 +24,9 @@ class App extends Component {
         }
       })
       .catch(err => {});
-    // this.get = this.get.bind(this);
+
     this.onEventHander = this.onEventHander.bind(this);
   }
-  // get = () => {
-  //   return new Promise(
-  //
-  //   );
-  // };
 
   onEventHander(event) {
     nu.userData.pageCode = event.pageCode;
@@ -40,8 +34,6 @@ class App extends Component {
   }
 
   getView = () => {
-    //alert(nu.userData.pageCode);
-
     if (nu.userData.pageCode == "3") {
       return <Cert onEvent={this.onEventHander} udata={this.setState.udata} />; //3
     } else if (nu.userData.pageCode == "2") {
