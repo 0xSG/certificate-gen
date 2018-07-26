@@ -30,11 +30,11 @@ class Auth extends Component {
     //Check the password and user name
     //if true get the data
     //send the data to event
+    alert(usr.userData.password + ":" + usr.userData.email);
     axios
       .post("http://localhost:3008/auth", {
-        name: "sgk",
-        email: "sgk@sgk.com",
-        password: "sgk@sgk.com"
+        email: usr.userData.email,
+        password: usr.userData.password
       })
       .then(result => {
         this.props.onEvent(result.data);

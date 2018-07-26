@@ -44,26 +44,6 @@ app.post("/auth", (req, res) => {
 
 var db = firebase.database();
 
-// db.ref("users/").set({
-//   name: "sgk",
-//   uid: "dasfasd",
-//   cour: [
-//     {
-//       coid: "dfsf",
-//       cname: "full stack",
-//       c_date:
-//         "Date :" +
-//         new Date().getDate() +
-//         ":" +
-//         new Date().getMonth() +
-//         ":" +
-//         new Date().getFullYear()
-//     }
-//   ],
-//   email: "susus@dfs.cd",
-//   password: "sgk"
-// });
-
 app.get("/cert/:id", (req, res) => {
   // for gettings certificate
   var id = req.params.id;
@@ -79,36 +59,4 @@ app.get("/cert/:id", (req, res) => {
   );
 
   res.status(200).send("id: " + id);
-});
-
-// app.post("/auth", (req, res) => {
-//   var data = req.body;
-//   if (Object.keys(data).length == 0) {
-//     res
-//       .status(500)
-//       .send({ error: "internal error occured. please try again." });
-//   } else
-//     db.ref("users/").on(
-//       "value",
-//       function(snapshot) {
-//         var result = snapshot.val();
-//         if (result.email === data.email && result.password === data.password) {
-//           res.status(200).send({
-//             msg: "Authenticated",
-//             pageCode: "2",
-//             person_obj: result
-//           }); // authenticated
-//         } else
-//           res
-//             .status(200)
-//             .send({ pageCode: "1", error: "Authentication error." });
-//       },
-//       function(errorObject) {
-//         res.send({ pageCode: "1" });
-//       }
-//     );
-// });
-
-app.get("/auth", (req, res) => {
-  res.status(200).send({ pageCode: "2" });
 });
