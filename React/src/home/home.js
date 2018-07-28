@@ -2,71 +2,34 @@ import React, { Component } from "react";
 import { AsyncStorage } from "AsyncStorage";
 import "./home.css";
 import user from "../user/data";
+import Courses from "../courses/courses";
 
 class Home extends Component {
   state = {};
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      courses: [
+        "FULL STACK WEB DEVELOPMENT",
+        "IMAGE PROCESSING AND MACHINE LEARNING"
+      ]
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   onBackButtonEvent() {}
   componentWillMount() {}
-
   componentWillUnmount() {
     new user().userData.pageCode = "2";
   }
 
   handleSubmit(event) {
-    var usr = new user();
-    var date = new Date().getDate();
-    var month = new Date().getMonth() + 1;
-    var year = new Date().getFullYear();
-    usr.userData.udata.date = date + "-" + month + "-" + year;
-
-    //c1 p
-
-    if (event.target.id == "lo") {
+    if (event.target != undefined && event.target.id == "lo") {
       this.props.onEvent({ pageCode: "1" });
       this.forceUpdate();
       AsyncStorage.setItem("pageCode", "1");
-    }
-    if (event.target.id == "c1p") {
-      //alert("cp1");
-      usr.userData.udata.cname = "IMAGE PROCESSING AND MACHINE LEARNING";
-      this.props.onEvent({ pageCode: "3" });
-    }
-    //c1 g
-    else if (event.target.id == "c1g") {
-      //alert("cg1");
-
-      usr.userData.udata.cname = "IMAGE PROCESSING AND MACHINE LEARNING";
-
-      this.props.onEvent({ pageCode: "3" });
-    }
-
-    //c2 p
-    else if (event.target.id == "c2p") {
-      //alert("cp2");
-      var date = new Date().getDate();
-      var month = new Date().getMonth() + 1;
-      var year = new Date().getFullYear();
-
-      usr.userData.udata.cname = "FULL STACK WEB DEVELOPMENT";
-      this.props.onEvent({ pageCode: "3" });
-    }
-
-    //c2 g
-    else if (event.target.id == "c2g") {
-      //alert("cg2");
-      var date = new Date().getDate();
-      var month = new Date().getMonth() + 1;
-      var year = new Date().getFullYear();
-
-      usr.userData.udata.cname = "FULL STACK WEB DEVELOPMENT";
-      this.props.onEvent({ pageCode: "3" });
-    }
+    } else this.props.onEvent(event);
   }
 
   render() {
@@ -93,32 +56,9 @@ class Home extends Component {
             </button>
           </div>
           <div className="  col-6">
-            <div className="  ">
-              <div className=" card shadow-lg">
-                <p className=" titl">IMAGE PROCESSING AND MACHINE LEARNING</p>
-
-                <button
-                  onClick={this.handleSubmit}
-                  id={"c1p"}
-                  className=" btn-warning "
-                >
-                  Print
-                </button>
-              </div>
-            </div>
-            <div className="  ">
-              <div className=" card shadow-lg">
-                <p className=" titl">FULL STACK WEB DEVELOPMENT</p>
-
-                <button
-                  onClick={this.handleSubmit}
-                  id={"c2p"}
-                  className=" btn-warning "
-                >
-                  Print
-                </button>
-              </div>
-            </div>
+            {this.state.courses.map(cour => {
+              return <Courses title={cour} onEvent={this.handleSubmit} />;
+            })}
           </div>
         </div>
       </div>

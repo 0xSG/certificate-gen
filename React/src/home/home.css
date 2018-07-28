@@ -15,6 +15,7 @@
   font-family: arial;
   padding: 5px;
 }
+
 .home .header {
   top: 0%;
   left: 0px;
@@ -54,11 +55,6 @@ a {
   font-size: 22px;
   color: black;
 }
-
-/* button:hover,
-a:hover {
-  color: #07b966;
-} */
 
 .home .col-6 .row .card {
   height: auto;
