@@ -32,7 +32,7 @@ class Courses extends Component {
             id={"c2p"}
             className=" btn-warning "
           >
-            Print
+            Generate
           </button>
         </div>
       </div>

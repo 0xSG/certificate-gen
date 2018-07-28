@@ -3,23 +3,53 @@ import { AsyncStorage } from "AsyncStorage";
 import "./home.css";
 import user from "../user/data";
 import Courses from "../courses/courses";
-
+import * as firebase from "firebase";
+//import { database } from "../../../Node/node_modules/firebase";
+var usr;
+var config;
+var database;
+const axios = require("axios");
 class Home extends Component {
   state = {};
 
   constructor(props) {
     super(props);
-    this.state = {
-      courses: [
-        "FULL STACK WEB DEVELOPMENT",
-        "IMAGE PROCESSING AND MACHINE LEARNING"
-      ]
+    config = {
+      apiKey: "AIzaSyDd1nOUq16xjTVQ300G9Sqfg2c-bbq8ttU",
+      authDomain: "certificate-5448e.firebaseapp.com",
+      databaseURL: "https://certificate-5448e.firebaseio.com",
+      projectId: "certificate-5448e",
+      storageBucket: "certificate-5448e.appspot.com",
+      messagingSenderId: "361973650141"
     };
+    firebase.initializeApp(config);
+    database = firebase.database();
+    this.state = {
+      courses: []
+    };
+    usr = new user();
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    axios
+      .get("http://localhost:3008/getDetails")
+      .then(result => {
+        this.state.courses = result.data;
+        //alert(result.data);
+      })
+      .catch(err => {});
+
+    database.ref("courses/").on("value", snapshot => {
+      //courses = snapshot.val();
+      var courses = snapshot.val();
+      var arr = [];
+      for (var course in courses) {
+        arr.push(courses[course]);
+      }
+      this.setState({ courses: arr });
+      this.forceUpdate();
+    });
   }
 
-  onBackButtonEvent() {}
-  componentWillMount() {}
   componentWillUnmount() {
     new user().userData.pageCode = "2";
   }

@@ -12,6 +12,7 @@ class App extends Component {
     nu = new user();
 
     super(props);
+
     this.state = {
       udata: new user().userData.udata
     };
