@@ -13,6 +13,7 @@ var config = {
   messagingSenderId: "361973650141"
 };
 firebase.initializeApp(config);
+var db = firebase.database();
 
 app.all("/*", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -41,8 +42,22 @@ app.post("/auth", (req, res) => {
       res.status(200).send({ pageCode: "1" });
     });
 });
-
-var db = firebase.database();
+var courses;
+db.ref("courses/").on("child_changed", snapshot => {
+  console.log(snapshot.val());
+  courses = snapshot.val();
+});
+db.ref("courses/").on("value", snapshot => {
+  console.log(snapshot.val());
+  courses = snapshot.val();
+});
+app.get("/getDetails", (req, res) => {
+  var arr = [];
+  for (var course in courses) {
+    arr.push(courses[course]);
+  }
+  res.status(200).send(arr);
+});
 
 app.get("/cert/:id", (req, res) => {
   // for gettings certificate

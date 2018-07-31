@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./auth.css";
 import { AsyncStorage } from "AsyncStorage";
-
+import * as firebase from "firebase";
 import user from "../user/data";
 
 const axios = require("axios");
@@ -31,17 +31,16 @@ class Auth extends Component {
     //Check the password and user name
     //if true get the data
     //send the data to event
-
-    axios
-      .post("http://localhost:3008/auth", {
-        email: usr.userData.email,
-        password: usr.userData.password
-      })
-      .then(result => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(usr.userData.email, usr.userData.password)
+      .then(data => {
+        var result = { data: { pageCode: "2" } };
         this.props.onEvent(result.data);
         this.setState({ products: result.data });
         console.log(result);
 
+        AsyncStorage.setItem("email", firebase.auth().currentUser.email);
         AsyncStorage.setItem("pageCode", "2");
         if (result.data.pageCode != "2") alert("incorrect email or password");
       })
