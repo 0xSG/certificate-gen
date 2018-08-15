@@ -2,6 +2,7 @@
   "name": "back-end",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://0xpulsar.github.io/certificate-gen/",
   "dependencies": {
     "AsyncStorage": "^0.1.5",
     "axios": "^0.18.0",
@@ -16,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
