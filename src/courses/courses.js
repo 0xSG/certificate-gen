@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./courses.css";
 import user from "../user/data";
-import { AsyncStorage } from "AsyncStorage";
 
 class Courses extends Component {
   constructor(props) {

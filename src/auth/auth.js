@@ -4,7 +4,6 @@ import { AsyncStorage } from "AsyncStorage";
 import * as firebase from "firebase";
 import user from "../user/data";
 
-const axios = require("axios");
 var usr;
 class Auth extends Component {
   state = { info: " " };

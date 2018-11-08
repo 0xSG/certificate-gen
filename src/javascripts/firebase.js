@@ -1,5 +1,5 @@
 import * as firebase from "firebase";
-let database;
+
 export const init = () => {
   var config = {
     apiKey: "AIzaSyDd1nOUq16xjTVQ300G9Sqfg2c-bbq8ttU",
