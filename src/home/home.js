@@ -5,12 +5,10 @@ import user from "../user/data";
 import Courses from "../courses/courses";
 import * as firebase from "firebase";
 
-//import { database } from "../../../Node/node_modules/firebase";
 var usr;
 
 var database;
 
-//const axios = require("axios");
 class Home extends Component {
   state = {};
 
@@ -24,14 +22,6 @@ class Home extends Component {
     usr = new user();
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    // axios
-    //   .get("http://localhost:3008/getDetails")
-    //   .then(result => {
-    //     this.state.courses = result.data;
-    //     //alert(result.data);
-    //   })
-    //   .catch(err => {});
-
     database.ref("courses/").on("value", snapshot => {
       //courses = snapshot.val();
       var courses = snapshot.val();
@@ -43,7 +33,7 @@ class Home extends Component {
 
       this.forceUpdate();
     });
-
+    //Get the user email address
     AsyncStorage.getItem("email")
       .then(result => {
         new user().userData.udata.email = result;

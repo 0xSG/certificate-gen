@@ -26,6 +26,7 @@ class App extends Component {
       udata: new user().userData.udata
     };
 
+    //TODO get pagecode
     AsyncStorage.getItem("pageCode")
       .then(result => {
         if (nu.userData.pageCode != result) {

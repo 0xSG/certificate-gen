@@ -38,7 +38,7 @@ class Auth extends Component {
         this.props.onEvent(result.data);
         this.setState({ products: result.data });
         console.log(result);
-
+        //TODO save email and pagecode
         AsyncStorage.setItem("email", firebase.auth().currentUser.email);
         AsyncStorage.setItem("pageCode", "2");
         if (result.data.pageCode != "2") alert("incorrect email or password");
