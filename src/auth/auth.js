@@ -19,11 +19,11 @@ class Auth extends Component {
   }
   handleEmailChange(event) {
     //this.setState({ email: event.target.value });
-    usr.userData.email = event.target.value;
+    usr.userData.udata.email = event.target.value;
   }
   handlePasswordChange(event) {
     //this.setState({ password: event.target.value });
-    usr.userData.password = event.target.value;
+    usr.userData.udata.password = event.target.value;
   }
 
   handleSubmit(event) {
@@ -32,14 +32,20 @@ class Auth extends Component {
     //send the data to event
     firebase
       .auth()
-      .signInWithEmailAndPassword(usr.userData.email, usr.userData.password)
+      .signInWithEmailAndPassword(
+        usr.userData.udata.email,
+        usr.userData.udata.password
+      )
       .then(data => {
+        // console.log(data.user.uid);
+        usr.userData.udata.uid = data.user.uid;
+        AsyncStorage.setItem("uid", data.user.uid);
+        AsyncStorage.setItem("email", data.user.email);
         var result = { data: { pageCode: "2" } };
         this.props.onEvent(result.data);
         this.setState({ products: result.data });
-        console.log(result);
-        //TODO save email and pagecode
-        AsyncStorage.setItem("email", firebase.auth().currentUser.email);
+        // console.log(result);
+
         AsyncStorage.setItem("pageCode", "2");
         if (result.data.pageCode != "2") alert("incorrect email or password");
       })

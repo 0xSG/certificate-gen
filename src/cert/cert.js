@@ -28,7 +28,8 @@ class Cert extends Component {
         <img src={"./Certif.png"} alt="Snow" className="make-a-4" />
         <div className="t1">
           <div className="d">
-            CERTIFICATE OF <br />ACHIEVEMENT
+            CERTIFICATE OF <br />
+            ACHIEVEMENT
           </div>
         </div>
         <div className="t2">
@@ -50,7 +51,7 @@ class Cert extends Component {
           <div>
             Date:{new user().userData.udata.date}
             <br />
-            {new user().userData.udata.uno}
+            {new user().userData.udata.uid}
           </div>
         </div>
         <div className="t7">

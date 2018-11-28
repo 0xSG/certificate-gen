@@ -22,21 +22,39 @@ class Home extends Component {
     usr = new user();
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    database.ref("courses/").on("value", snapshot => {
-      //courses = snapshot.val();
-      var courses = snapshot.val();
-      var arr = [];
-      for (var course in courses) {
-        arr.push(courses[course]);
-      }
-      this.setState({ courses: arr });
-
-      this.forceUpdate();
-    });
+    // database.ref(usr.userData.udata.uid + "/name").on("value", snapshot => {
+    //   usr.userData.udata.name = snapshot.val();
+    //   console.log(usr.userData.udata.name);
+    //   this.forceUpdate();
+    // });
     //Get the user email address
     AsyncStorage.getItem("email")
       .then(result => {
         new user().userData.udata.email = result;
+        this.forceUpdate();
+      })
+      .catch(err => {});
+
+    AsyncStorage.getItem("uid")
+      .then(result => {
+        if (result) {
+          new user().userData.udata.uid = result;
+          // console.log(result);
+          database.ref(result + "/").on("value", snapshot => {
+            //courses = snapshot.val();
+
+            new user().userData.udata.name = snapshot.val().name;
+            console.log(snapshot.val().name);
+            var courses = snapshot.val().courses;
+            var arr = [];
+            for (var course in courses) {
+              arr.push(courses[course]);
+            }
+            this.setState({ courses: arr });
+
+            this.forceUpdate();
+          });
+        }
         this.forceUpdate();
       })
       .catch(err => {});
@@ -68,7 +86,7 @@ class Home extends Component {
               alt="John"
               className=" myimg"
             />
-            <p className=" titl">{new user().userData.udata.email}</p>
+            <p className=" titl">{new user().userData.udata.name}</p>
             <button
               onClick={this.handleSubmit}
               id={"lo"}

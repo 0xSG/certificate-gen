@@ -5,7 +5,8 @@ class user {
       cname: " ",
       date: "",
       uno: "SXFP-CHYK-ONI6-S89U",
-      name: "REIYA RANJAN"
+      name: "",
+      uid: ""
     },
     pageCode: "1"
   };
