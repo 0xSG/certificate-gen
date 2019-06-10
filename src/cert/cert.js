@@ -56,7 +56,7 @@ class Cert extends Component {
         </div>
         <div className="t7">
           <div>
-            Khushboo Murarka, Director <br /> Your Career Navigator Pvt Ltd
+            Surya gangaraj, Director <br /> Your Career Navigator Pvt Ltd
           </div>
         </div>
       </div>
